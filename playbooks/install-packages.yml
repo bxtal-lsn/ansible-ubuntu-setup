@@ -10,7 +10,7 @@
         file: "../config/package-list.yml"
 
     - name: Install packages
-      pacman:
+      apt:
         name: "{{ packages }}"
         state: present
 
@@ -24,9 +24,3 @@
         name: "{{ target_user }}"
         groups: docker
         append: yes
-
-    - name: Enable and start docker service
-      ansible.builtin.service:
-        name: docker
-        state: started
-        enabled: true
