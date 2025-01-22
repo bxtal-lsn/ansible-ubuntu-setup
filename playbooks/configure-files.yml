@@ -1,0 +1,27 @@
+---
+- name: Configure files
+  hosts: all
+  become: false
+  tasks:
+    - name: Load file configuration
+      include_vars:
+        file: "../config/files.yml"
+
+    - name: Ensure parent directories exist
+      file:
+        path: "{{ item.dest | dirname }}"
+        state: directory
+        owner: "{{ ansible_env.USER }}"
+        group: "{{ ansible_env.USER }}"
+        mode: '0755'
+      loop: "{{ files }}"
+
+    - name: Deploy configuration files
+      copy:
+        src: "../config/{{ item.src }}"
+        dest: "{{ item.dest }}"
+        owner: "{{ ansible_env.USER }}"
+        group: "{{ ansible_env.USER }}"
+        mode: "{{ item.mode }}"
+      loop: "{{ files }}"
+

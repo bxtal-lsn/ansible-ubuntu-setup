@@ -1,0 +1,12 @@
+---
+- name: Update the System on Arch Linux
+  hosts: all
+  become: true
+  tasks:
+    - name: Synchronize package databases
+      pacman:
+        update_cache: yes
+
+    - name: Upgrade all installed packages
+      pacman:
+        upgrade: yes

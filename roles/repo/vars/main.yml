@@ -1,0 +1,6 @@
+repos:
+  - url: https://github.com/bxtal-lsn/nvim-config.git
+    dest: ~/repos/nvim
+  
+  - url: https://github.com/tmux-plugins/tpm.git
+    dest: ~/.tmux/plugins/tpm

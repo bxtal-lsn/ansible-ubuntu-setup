@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - include: update-system.yml
+    - include: install-packages.yml
+    - include: manage-services.yml
+    - include: create-directories.yml
+    - include: repos.yml
+    - include: configure-files.yml
+

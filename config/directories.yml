@@ -1,0 +1,17 @@
+# This file defines the directories to be created by Ansible.
+# Each entry should include the path, owner, group, and permissions (mode).
+directories:
+  - path: ~/repos
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"    
+    mode: '0755'
+
+  - path: ~/ansible-test
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"    
+    mode: '0755'
+
+  - path: ~/.tmux/plugins/tpm
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"    
+    mode: '0755'

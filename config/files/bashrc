@@ -1,0 +1,13 @@
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+start-ssh-agent() {
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+}
+
+VAGRANT_DEFAULT_PROVIDER=virtualbox
+export XDG_CONFIG_HOME="$HOME/repos"

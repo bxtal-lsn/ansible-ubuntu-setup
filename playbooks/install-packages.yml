@@ -1,0 +1,32 @@
+---
+- name: Install packages on Arch Linux
+  hosts: all
+  vars_files:
+    - vars/user.yml
+  become: true
+  tasks:
+    - name: Load package list
+      include_vars:
+        file: "../config/package-list.yml"
+
+    - name: Install packages
+      pacman:
+        name: "{{ packages }}"
+        state: present
+
+    - name: Create docker group
+      ansible.builtin.group:
+        name: docker
+        state: present
+
+    - name: Add user to docker group
+      ansible.builtin.user:
+        name: "{{ target_user }}"
+        groups: docker
+        append: yes
+
+    - name: Enable and start docker service
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true

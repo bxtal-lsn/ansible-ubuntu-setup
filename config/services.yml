@@ -1,0 +1,7 @@
+services:
+  - name: sshd
+    state: started
+    enabled: yes
+  - name: docker
+    state: started
+    enabled: yes

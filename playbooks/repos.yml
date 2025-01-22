@@ -1,0 +1,6 @@
+---
+- name: Download and manage multiple repositories
+  hosts: all
+  become: false
+  roles:
+    - repo

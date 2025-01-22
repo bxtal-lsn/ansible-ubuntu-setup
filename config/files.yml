@@ -1,0 +1,25 @@
+files:
+  - src: files/bashrc
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: '0644'
+
+  - src: files/ghostty-config
+    dest: "{{ ansible_env.HOME }}/.config/ghostty/config"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: '0644'
+
+  - src: files/zellij-config.kdl
+    dest: "{{ ansible_env.HOME }}/.config/zellij/config.kdl"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: '0644'
+
+
+  - src: files/tmux-config.conf
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: '0644'

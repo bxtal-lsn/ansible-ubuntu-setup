@@ -1,0 +1,8 @@
+ansible-playbook -i inventories/inventory.yml playbooks/configure-files.yml
+ansible-playbook -K -i inventories/inventory.yml playbooks/create-directories.yml
+ansible-playbook -K -i inventories/inventory.yml playbooks/install-packages.yml
+ansible-playbook -K -i inventories/inventory.yml playbooks/update-system.yml
+ansible-playbook -K -i inventories/inventory.yml playbooks/manage-services.yml
+ansible-playbook -K -i inventories/inventory.yml playbooks/repos.yml
+ansible-playbook -K -i inventories/inventory.yml playbooks/master.yml
+

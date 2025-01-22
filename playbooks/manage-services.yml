@@ -1,0 +1,15 @@
+---
+- name: Manage system services
+  hosts: all
+  become: true
+  tasks:
+    - name: Load service configuration
+      include_vars:
+        file: "../config/services.yml"
+
+    - name: Ensure services are in the desired state
+      service:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+        enabled: "{{ item.enabled }}"
+      loop: "{{ services }}"
